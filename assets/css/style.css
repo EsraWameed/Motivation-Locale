@@ -1,0 +1,55 @@
+
+/*Universal Selectors*/
+
+*{
+ background-color: #eee9d1;
+}
+
+.historyCard-container{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+
+.historyCard{
+    max-width: 1000px;
+    flex-wrap: wrap;
+    background-color: #eee9d1;
+    min-width: 600px;
+    min-height: 190px;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;    
+}
+
+
+
+.oldQuote{
+    display: flex;
+    max-width: 70%;
+      
+}
+
+.img-quote-contain{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    justify-content:space-between
+}
+
+.btn-large{
+   flex-wrap: wrap;
+   position: relative;
+   margin-left: 100px;
+}
+
+.savedImage{
+    max-width: 250px;
+   /* height: 100px; */
+}
+
+/* keep in mind media query, allow text box to be full width, and 
+adjust image size.
