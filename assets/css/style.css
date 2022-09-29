@@ -1,8 +1,45 @@
-
 /*Universal Selectors*/
 
 *{
  background-color: #eee9d1;
+}
+
+
+header{
+    background-color: #9e9d24 ;
+
+}
+
+
+
+.make-quote{
+ background-color: deepskyblue;
+ margin-left: 45%;
+}
+
+.title{
+    margin-left: 38%;
+}
+
+.border{
+    border-style: solid;
+    border-color: black;
+    margin-top: 5%;
+    background-color: #9e9d24;
+    width: fit-content;
+    margin-left: 30%;
+    
+}
+
+.feeling-box{
+    border-style: solid;
+    border-color: black;
+    margin-top: 5%;
+    background-color: #9e9d24;
+    width: fit-content;
+    letter-spacing: 10px;
+    border-radius: 10px;
+    margin-left: 30%;
 }
 
 .historyCard-container{
@@ -53,3 +90,4 @@
 
 /* keep in mind media query, allow text box to be full width, and 
 adjust image size.
+
