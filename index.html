@@ -7,29 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title>Document</title>
+    <title>motivation Locale</title>
 </head>
 <body>
-    <header> <!--this for the title and the first button is to generate the quote and second is to generate a img-->
-        <div class="container">
-        <h1 class="title">Daily motivator</h1>
+    <header > <!--this for the title and the first button is to generate the quote and second is to generate a img-->
+        <div class="col s12 m2">
+        <div class="z-depth-5" class="container">
+        <h1 class="title">Motivation Locale</h1>
         <button class="make-quote" id="make-quote">quote</button>
         <button class="make-img" id="make-img">image</button>
         </div>
+        </div>
     </header>
-
+    <div class="border">
     <section>  <!-- herer is where the quote will be generated-->
-        <div class="quote-card">quote here</div>
+        <div class="quote-card">quote here:“To seek is to suffer. To seek nothing is bliss.” </div>
 
     </section>
 
     <section> <!--here will be where the img will be generated-->
-        <div class="imgcard"> img here</div>
+        <div class="imgcard"> img here:</div>
     </section>
+    </div>
 
      <!-- this the place wheer the sad student will be recording his feelings-->
         <section class="feeling-box">
-            <button class="feeling-save"></button>
+            <div class="feeling">
+                <input type="text" placeholder="your feelings?">
+                <button class="feeling-save">save</button>
+              </div>
         </section>
     
 
@@ -38,7 +44,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/assets/script/script.js"></script>
+    <script src="assets/script/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
