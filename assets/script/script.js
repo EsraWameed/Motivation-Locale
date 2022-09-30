@@ -13,6 +13,7 @@ quoteButton = addEventListener('click', generateQuote);
 // On button click, generate image metadata from up to page 1000 on the API
 function generateImage(event){
     event.preventDefault();
+    event.stopPropagation();
     var pagenumber = 1 + Math.floor(Math.random() * 250);
     console.log('click');
     var requestURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" +API+"&per_page=20&tags=smile%2Canimals&tag_mode=all&page=" +pagenumber+"&safe_search=1&sort=relevance&format=json&nojsoncallback=1";
@@ -42,6 +43,7 @@ function generateImage(event){
 // On quote button click, generate quote metadata
 function generateQuote(event){
     event.preventDefault();
+    event.stopPropagation();
     fetch("https://type.fit/api/quotes")
     .then(function(response) {
         if(response.status!=200){
