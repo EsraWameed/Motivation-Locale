@@ -76,7 +76,7 @@ function saveDisplayed(event){
         imageHistory.splice(3, 1);
         localStorage.setItem("SavedImage", JSON.stringify(imageHistory));
     }
-
+}
 // random number generator . max number 
 
 function get_randomQuote(data){
@@ -84,11 +84,12 @@ function get_randomQuote(data){
  
  if (data[randomQuote].author === null){
     let ifNull = "Anonymous";
-   let withoutAuthor = data[randomQuote].text+ "\n"+"~"+ ifNull
-    document.getElementById("quotecard").innerHTML = withoutAuthor
- } else{
-    let withAuthor = data[randomQuote].text+ "\n"+"~"+ data[randomQuote].author
-    document.getElementById("quotecard").innerHTML = withAuthor
- }
+   let withoutAuthor = data[randomQuote].text+ "\n"+"~"+ ifNull;
+    document.getElementById("quotecard").innerHTML = withoutAuthor;
+    } 
+    else{
+    let withAuthor = data[randomQuote].text+ "\n"+"~"+ data[randomQuote].author;
+    document.getElementById("quotecard").innerHTML = withAuthor;
+    }
 
 }
