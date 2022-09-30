@@ -2,7 +2,11 @@
 let API = '4bf99d80dc6e60d9f637002fca396fe9';
 let imageButton = document.querySelector('#make-img');
 let quoteButton = document.querySelector('#make-quote');
+
+ let currentQuote_index;
+
 let imageHolder = document.querySelector('.imgcard');
+
 //Add event listener to button
 imageButton.addEventListener('click', generateImage);
 quoteButton = addEventListener('click', generateQuote);
@@ -48,6 +52,23 @@ function generateQuote(event){
         }
     })
     .then(function(data) {
-        console.log(data);
+        get_randomQuote(data);
+//  console.log(data)
     });
+}
+
+
+// random number generator . max number 
+
+function get_randomQuote(data){
+ let randomQuote= 0 + Math.floor(Math.random() * 1643);
+ 
+ if (data[randomQuote].author === null){
+    let ifNull = "Anonymous";
+   let withoutAuthor = data[randomQuote].text+ "\n"+"~"+ ifNull
+    document.getElementById("quotecard").innerHTML = withoutAuthor
+ } else{
+    let withAuthor = data[randomQuote].text+ "\n"+"~"+ data[randomQuote].author
+    document.getElementById("quotecard").innerHTML = withAuthor
+ }
 }
