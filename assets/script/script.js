@@ -1,3 +1,5 @@
+
+
 // Declare API variable and query select the buttons
 let API = '4bf99d80dc6e60d9f637002fca396fe9';
 let imageButton = document.querySelector('#make-img');
@@ -9,6 +11,11 @@ let imageHolder = document.querySelector('.imgcard');
 
 let imageURL;
 let imageHistory = [];
+let quoteHistory = [];
+quoteHistory = JSON.parse(localStorage.getItem("savedQuotes"));
+if(quoteHistory=== null){
+    quoteHistory=[];
+}
 
 //Add event listener to button
 imageButton.addEventListener('click', generateImage);
@@ -59,7 +66,7 @@ function generateQuote(event){
     })
     .then(function(data) {
         get_randomQuote(data);
-//  console.log(data)
+
     });
 }
 
@@ -76,20 +83,40 @@ function saveDisplayed(event){
         imageHistory.splice(3, 1);
         localStorage.setItem("SavedImage", JSON.stringify(imageHistory));
     }
+    saveQuoteTolocalHistory();
 }
-// random number generator . max number 
 
+// function to generate random Quote
+let theQuote;
+let theAuthor;
+let theQuote_theAuthor;
 function get_randomQuote(data){
  let randomQuote= 0 + Math.floor(Math.random() * 1643);
+ console.log(data)
+ theQuote = data[randomQuote].text;
+theAuthor = data[randomQuote].author;
+theQuote_theAuthor;
+if (data[randomQuote].author === null){
+    theAuthor = "Anonymous"
+} theQuote_theAuthor=theQuote + "<br> ~"+ theAuthor;
  
- if (data[randomQuote].author === null){
-    let ifNull = "Anonymous";
-   let withoutAuthor = data[randomQuote].text+ "\n"+"~"+ ifNull;
-    document.getElementById("quotecard").innerHTML = withoutAuthor;
-    } 
-    else{
-    let withAuthor = data[randomQuote].text+ "\n"+"~"+ data[randomQuote].author;
-    document.getElementById("quotecard").innerHTML = withAuthor;
+    document.getElementById("quotecard").innerHTML = theQuote_theAuthor;
+    
+  return randomQuote;
+}
+
+// function to store generated quote to local storage upon clicking save
+function saveQuoteTolocalHistory(){
+
+if (quoteHistory.length < 3){
+            quoteHistory.unshift(theQuote_theAuthor);
+        localStorage.setItem("oldQuote", JSON.stringify(quoteHistory));
+        }
+        else{
+            quoteHistory.unshift(theQuote_theAuthor);
+            quoteHistory.splice(3, 1);
+            localStorage.setItem("oldQuote", JSON.stringify(quoteHistory));
+        }
+
     }
 
-}
