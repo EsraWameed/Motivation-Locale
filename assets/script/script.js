@@ -86,9 +86,10 @@ function get_randomQuote(data){
     let ifNull = "Anonymous";
    let withoutAuthor = data[randomQuote].text+ "\n"+"~"+ ifNull;
     document.getElementById("quotecard").innerHTML = withoutAuthor;
- } else{
+    } 
+    else{
     let withAuthor = data[randomQuote].text+ "\n"+"~"+ data[randomQuote].author;
     document.getElementById("quotecard").innerHTML = withAuthor;
- }
+    }
 
 }
