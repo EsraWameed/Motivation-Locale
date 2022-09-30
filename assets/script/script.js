@@ -1,7 +1,7 @@
 // Declare API variable and query select the buttons
 let API = '4bf99d80dc6e60d9f637002fca396fe9';
-let imageButton = document.querySelector('#make-img');
-let quoteButton = document.querySelector('#make-quote');
+let imageButton = document.getElementById('gimg');
+let quoteButton = document.getElementById('gquote');
 
  let currentQuote_index;
 
@@ -12,7 +12,7 @@ let imageHistory = [];
 
 //Add event listener to button
 imageButton.addEventListener('click', generateImage);
-quoteButton = addEventListener('click', generateQuote);
+quoteButton.addEventListener('click', generateQuote);
 // On button click, generate image metadata from up to page 1000 on the API
 function generateImage(event){
     event.preventDefault();
