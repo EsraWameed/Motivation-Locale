@@ -88,6 +88,9 @@ header{
    /* height: 100px; */
 }
 
+.btn{
+ background-color: rgb(126, 192, 207);
+}
 /* keep in mind media query, allow text box to be full width, and 
 adjust image size.
 
