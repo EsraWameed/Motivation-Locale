@@ -12,13 +12,20 @@ This application was created for users looking for some daily motivation to get 
 - CSS: to integrate styling to the application.
 - Materialize: Integrate styling to the application.
 - javascript: to add functionality and local storage.
+- jQuery: to add functionality to js scripts.
 ## Wireframe
 ![Screenshot of the wireframe's index page](assets/images/Wireframe1.png "Final Look")
 ![Screenshot of the wireframe's history page](assets/images/Wireframe2.png "Final Look")
 ## Credits
+## API's
+### Flickr API:
+- https://live.staticflickr.com
+### Type.fit API:
+- https://type.fit/api/quotes
+## Contributors:
 ### Nathan Kryzanowski
 - https://github.com/NathanKryz
-### Esra Al-Abduljavar
+### Esra Al-Abduljabar
 - https://github.com/EsraWameed
 ### Salman
 - https://github.com/456salman
