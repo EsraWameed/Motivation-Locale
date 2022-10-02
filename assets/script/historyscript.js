@@ -1,5 +1,5 @@
+// Function to print the contents of the local storage into each of the three respective containers
 function oldUserInput(){
-  // let oldFeeling = document.querySelector("savedNote")
    let getOldNotes = JSON.parse(localStorage.getItem("userNotes"));
    let getOldImages = JSON.parse(localStorage.getItem("SavedImage"));
    let getOldQuotes = JSON.parse(localStorage.getItem("oldQuote"));
@@ -11,10 +11,11 @@ function oldUserInput(){
      }
    
 }
+// Execute function on page load
 oldUserInput();
-
+// Event listener for the clear history button
 $('#clearHistorybtn').on('click', clearHistory);
-
+// Function to clear the local storage and reload the window
 function clearHistory(event){
     event.preventDefault();
     window.localStorage.clear();
