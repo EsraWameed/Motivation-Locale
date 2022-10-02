@@ -100,7 +100,7 @@ theAuthor = data[randomQuote].author;
 theQuote_theAuthor;
 if (data[randomQuote].author === null){
     theAuthor = "Anonymous"
-} theQuote_theAuthor=theQuote + "<br> ~"+ theAuthor;
+} theQuote_theAuthor=theQuote + "\n~"+ theAuthor;
  
     document.getElementById("quotecard").innerHTML = theQuote_theAuthor;
     
