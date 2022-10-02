@@ -84,6 +84,7 @@ function saveDisplayed(event){
         localStorage.setItem("SavedImage", JSON.stringify(imageHistory));
     }
     saveQuoteTolocalHistory();
+    saveUserInput();
 }
 
 // function to generate random Quote
@@ -131,28 +132,25 @@ function saveUserInput(){
     let input = document.getElementById("userinput").value
     let userNotes =[];
     userNotes = JSON.parse(localStorage.getItem("userNotes")) || []
-    userNotes.push(input)
-    localStorage.setItem("userNotes", JSON.stringify(userNotes));   
+    if (userNotes.length < 3){
+    userNotes.unshift(input)
+    localStorage.setItem("userNotes", JSON.stringify(userNotes));
+    }
+    else{
+        userNotes.unshift(input);
+        userNotes.splice(3, 1);
+        localStorage.setItem("userNotes", JSON.stringify(userNotes));
+    }   
 
 
 }
-let savebtn = document.querySelector(".feeling-save")
-savebtn.addEventListener('click', saveUserInput,oldUserInput);
+ //let savebtn = document.querySelector(".feeling-save")
+//savebtn.addEventListener('click', saveUserInput);
 
 
 
 
-function oldUserInput(){
-    oldFeeling = document.querySelector("savedNote")
-    getOldNotes = JSON.parse(localStorage.getItem("userNotes"))
-    console.log(getOldNotes)
-     for(i=0; i < 3 ; i++){
-       document.getElementById("note-" + i).innerHTML = getOldNotes[i]
-       console.log("note-" + i)
 
-     }
-   
-}
 
 
 
