@@ -18,5 +18,5 @@ $('#clearHistorybtn').on('click', clearHistory);
 function clearHistory(event){
     event.preventDefault();
     window.localStorage.clear();
-    oldUserInput();
+    window.location.reload();
 }
