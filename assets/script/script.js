@@ -12,6 +12,7 @@ let imageHolder = document.querySelector('.imgcard');
 let imageURL;
 let imageHistory = [];
 let quoteHistory = [];
+let options;
 quoteHistory = JSON.parse(localStorage.getItem("savedQuotes"));
 if(quoteHistory=== null){
     quoteHistory=[];
@@ -110,7 +111,7 @@ function saveQuoteTolocalHistory(){
 
 if (quoteHistory.length < 3){
             quoteHistory.unshift(theQuote_theAuthor);
-        localStorage.setItem("oldQuote", JSON.stringify(quoteHistory));
+      localStorage.setItem("oldQuote", JSON.stringify(quoteHistory));
         }
         else{
             quoteHistory.unshift(theQuote_theAuthor);
@@ -120,3 +121,19 @@ if (quoteHistory.length < 3){
 
     }
 
+
+    //function to display local storage to history html page
+    
+
+
+    // to add modal 
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, options);
+      });
+    
+      // Or with jQuery
+    
+      $(document).ready(function(){
+        $('.modal').modal();
+      });
