@@ -10,13 +10,6 @@ let quoteButton = document.getElementById('gquote');
 let imageHolder = document.querySelector('.imgcard');
 
 let imageURL;
-let imageHistory = [];
-let quoteHistory = [];
-let options;
-quoteHistory = JSON.parse(localStorage.getItem("savedQuotes"));
-if(quoteHistory=== null){
-    quoteHistory=[];
-}
 
 //Add event listener to button
 imageButton.addEventListener('click', generateImage);
@@ -25,7 +18,7 @@ quoteButton.addEventListener('click', generateQuote);
 function generateImage(event){
     event.preventDefault();
     event.stopPropagation();
-    var pagenumber = 1 + Math.floor(Math.random() * 250);
+    var pagenumber = 1 + Math.floor(Math.random() * 500);
     console.log('click');
     var requestURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" +API+"&per_page=20&tags=smile%2Canimals&tag_mode=all&page=" +pagenumber+"&safe_search=1&sort=relevance&format=json&nojsoncallback=1";
     fetch (requestURL)
@@ -75,6 +68,8 @@ $(document).on('click', '.feeling-save', saveDisplayed);
 
 function saveDisplayed(event){
     event.preventDefault();
+    let imageHistory = [];
+    imageHistory = JSON.parse(localStorage.getItem("SavedImage")) || []
     if (imageHistory.length < 3){
     imageHistory.unshift(imageURL);
     localStorage.setItem("SavedImage", JSON.stringify(imageHistory));
@@ -109,8 +104,9 @@ if (data[randomQuote].author === null){
 
 // function to store generated quote to local storage upon clicking save
 function saveQuoteTolocalHistory(){
-
-if (quoteHistory.length < 3){
+    let quoteHistory = [];
+    quoteHistory = JSON.parse(localStorage.getItem("oldQuote")) || []
+        if (quoteHistory.length < 3){
             quoteHistory.unshift(theQuote_theAuthor);
       localStorage.setItem("oldQuote", JSON.stringify(quoteHistory));
         }
