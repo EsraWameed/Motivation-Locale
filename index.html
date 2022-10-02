@@ -5,12 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>motivation Locale</title>
 </head>
 <body>
     <header > <!--this for the title and the first button is to generate the quote and second is to generate a img-->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Welcome to Motivation Locale</a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>User Guide</h4>
+            <p>Welcome to Motivation Locale, please press the "quote" button to generate a random quote, and the "image" button to generate a random image. In the feelings input box, you can add your feelings today and save them all. All saved quotes,images, and input will be saved to the history pafe. We hope you enjoy the experience!</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Proceed</a>
+          </div>
+        </div>
+
+        <!-- modal ends here-->
         <div class="col s12 m2">
         <div class="z-depth-5" class="container">
         <h1 class="title">Motivation Locale</h1>

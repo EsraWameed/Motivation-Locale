@@ -95,7 +95,7 @@ theAuthor = data[randomQuote].author;
 theQuote_theAuthor;
 if (data[randomQuote].author === null){
     theAuthor = "Anonymous"
-} theQuote_theAuthor=theQuote + "<br> ~"+ theAuthor;
+} theQuote_theAuthor=theQuote + "\n~"+ theAuthor;
  
     document.getElementById("quotecard").innerHTML = theQuote_theAuthor;
     
@@ -108,7 +108,7 @@ function saveQuoteTolocalHistory(){
     quoteHistory = JSON.parse(localStorage.getItem("oldQuote")) || []
         if (quoteHistory.length < 3){
             quoteHistory.unshift(theQuote_theAuthor);
-        localStorage.setItem("oldQuote", JSON.stringify(quoteHistory));
+      localStorage.setItem("oldQuote", JSON.stringify(quoteHistory));
         }
         else{
             quoteHistory.unshift(theQuote_theAuthor);
@@ -118,6 +118,23 @@ function saveQuoteTolocalHistory(){
 
     }
 
+
+
+    //function to display local storage to history html page
+    
+
+
+    // to add modal 
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, options);
+      });
+    
+      // Or with jQuery
+    
+      $(document).ready(function(){
+        $('.modal').modal();
+      });
 
 
 
@@ -143,6 +160,7 @@ function saveUserInput(){
 }
  //let savebtn = document.querySelector(".feeling-save")
 //savebtn.addEventListener('click', saveUserInput);
+
 
 
 
