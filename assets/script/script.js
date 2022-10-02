@@ -1,48 +1,47 @@
-
-
 // Declare API variable and query select the buttons
 let API = '4bf99d80dc6e60d9f637002fca396fe9';
 let imageButton = document.getElementById('gimg');
 let quoteButton = document.getElementById('gquote');
-
- let currentQuote_index;
-
+//Declare variable for the container for the images
 let imageHolder = document.querySelector('.imgcard');
-
+// Two variables to be used for randomizing the quote and image selection
+let currentQuote_index;
 let imageURL;
+// Three variables used to build the quote strings
+let theQuote;
+let theAuthor;
+let theQuote_theAuthor;
 
 //Add event listener to button
 imageButton.addEventListener('click', generateImage);
 quoteButton.addEventListener('click', generateQuote);
-// On button click, generate image metadata from up to page 1000 on the API
+// On button click, generate image metadata from up to page 500 on the API
 function generateImage(event){
     event.preventDefault();
     event.stopPropagation();
     var pagenumber = 1 + Math.floor(Math.random() * 500);
-    console.log('click');
     var requestURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" +API+"&per_page=20&tags=smile%2Canimals&tag_mode=all&page=" +pagenumber+"&safe_search=1&sort=relevance&format=json&nojsoncallback=1";
     fetch (requestURL)
     .then(function(response){
         if(response.status !=200)
         {
-            console.log('Failed search')
+            console.log('Failed search');
+            return;
         }
         else {
             return response.json();
         }
     })
     .then(function(data){
-        console.log(data);
+       // With the data first get a random number based on the length of the photo array returned
         var imagenumber = 1 + Math.floor(Math.random() * (data.photos.photo.length -1));
-        console.log(imagenumber);
+        // Then set variables to the server, the ID, and the secret
         var serverID = data.photos.photo[imagenumber].server;
         var imageID = data.photos.photo[imagenumber].id;
         var secretID = data.photos.photo[imagenumber].secret;
-       // console.log(userID);
-         imageURL = "https://live.staticflickr.com/"+serverID+"/"+imageID+"_"+secretID+"_w.jpg";
+        // Build a URL string from the three variables, then set the src of the container for the image to it
+        imageURL = "https://live.staticflickr.com/"+serverID+"/"+imageID+"_"+secretID+"_w.jpg";
         imageHolder.setAttribute("src", imageURL);
-       // imageHistory.push(imageURL);
-       // localStorage.setItem("SavedImage", JSON.stringify(imageHistory));
     })
 }
 // On quote button click, generate quote metadata
@@ -53,19 +52,39 @@ function generateQuote(event){
     .then(function(response) {
         if(response.status!=200){
             console.log('Failed search');
+            return;
         }
-        else{
+        else {
         return response.json();
         }
     })
     .then(function(data) {
+        // Then get a random quote with said data
         get_randomQuote(data);
 
     });
 }
 
+// The function to generate and return a random quote
+function get_randomQuote(data){
+    let randomQuote= 0 + Math.floor(Math.random() * 1643);
+    console.log(data)
+    theQuote = data[randomQuote].text;
+   theAuthor = data[randomQuote].author;
+   theQuote_theAuthor;
+   if (data[randomQuote].author === null){
+       theAuthor = "Anonymous"
+    } 
+   theQuote_theAuthor=theQuote + "\n~"+ theAuthor;
+    
+    document.getElementById("quotecard").innerHTML = theQuote_theAuthor;
+       
+    return;
+   }
+// Add a event listener to the save button
 $(document).on('click', '.feeling-save', saveDisplayed);
 
+// Function to save the generated image URL to the local storage 
 function saveDisplayed(event){
     event.preventDefault();
     let imageHistory = [];
@@ -79,28 +98,12 @@ function saveDisplayed(event){
         imageHistory.splice(3, 1);
         localStorage.setItem("SavedImage", JSON.stringify(imageHistory));
     }
+    // Executes the other two associated save function at the end
     saveQuoteTolocalHistory();
     saveUserInput();
 }
 
-// function to generate random Quote
-let theQuote;
-let theAuthor;
-let theQuote_theAuthor;
-function get_randomQuote(data){
- let randomQuote= 0 + Math.floor(Math.random() * 1643);
- console.log(data)
- theQuote = data[randomQuote].text;
-theAuthor = data[randomQuote].author;
-theQuote_theAuthor;
-if (data[randomQuote].author === null){
-    theAuthor = "Anonymous"
-} theQuote_theAuthor=theQuote + "\n~"+ theAuthor;
- 
-    document.getElementById("quotecard").innerHTML = theQuote_theAuthor;
-    
-  return randomQuote;
-}
+
 
 // function to store generated quote to local storage upon clicking save
 function saveQuoteTolocalHistory(){
@@ -117,31 +120,7 @@ function saveQuoteTolocalHistory(){
         }
 
     }
-
-
-
-    //function to display local storage to history html page
-    
-
-
-    // to add modal 
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.modal');
-        var instances = M.Modal.init(elems, options);
-      });
-    
-      // Or with jQuery
-    
-      $(document).ready(function(){
-        $('.modal').modal();
-      });
-
-
-
-
-
-
-//let getOldNotes ;
+// function to store inputted user feeling to the local storage upon clicking save
 function saveUserInput(){
     let input = document.getElementById("userinput").value
     let userNotes =[];
@@ -158,25 +137,8 @@ function saveUserInput(){
 
 
 }
- //let savebtn = document.querySelector(".feeling-save")
-//savebtn.addEventListener('click', saveUserInput);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Added functionality to display a modal on clicking the modal button at the top of the page
+$(document).ready(function(){
+    $('.modal').modal();
+ });

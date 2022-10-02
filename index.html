@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>motivation Locale</title>
+    <title>Motivation Locale</title>
 </head>
 <body>
     <header > <!--this for the title and the first button is to generate the quote and second is to generate a img-->
@@ -28,33 +28,34 @@
         <div class="col s12 m2">
         <div class="z-depth-5" class="container">
         <h1 class="title">Motivation Locale</h1>
-        <button class="make-quote" id="gquote">quote</button>
-        <button class="make-img" id="gimg">image</button>
+        <button class="make-quote" id="gquote">Generate Quote</button>
+        <button class="make-img" id="gimg">Generate Image</button>
         </div>
         </div>
     </header>
+    <!--Container for the generated quote and image-->
     <div class="border">
-    <section>  <!-- herer is where the quote will be generated-->
-        <div id="quotecard" class="quote-card">quote here:“To seek is to suffer. To seek nothing is bliss.” </div>
+    <section>  <!-- here is where the quote will be generated-->
+        <div id="quotecard" class="quote-card"> </div>
 
     </section>
 
     <section> <!--here will be where the img will be generated-->
-        <img class="imgcard"> img here:</img>
+        <img class="imgcard"></img>
     </section>
     </div>
 
-     <!-- this the place wheer the sad student will be recording his feelings-->
+     <!-- Container where the user will be able to input their feeling-->
         <section class="feeling-box">
             <div class="feeling">
                 <input id="userinput" type="text" placeholder="your feelings?">
-                <button class="feeling-save">save</button>
+                <button class="feeling-save">Save</button>
               </div>
         </section>
     
 
      
-   <!-- <button id="old-quotes">old</button> -->
+        <!--Button to take the user to the history page-->
     <div>
     <a href="assets/history.html" class="btn" id="old-quotes">History</a>
     </div>
