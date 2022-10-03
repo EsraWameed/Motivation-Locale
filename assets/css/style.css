@@ -1,15 +1,26 @@
 /*Universal Selectors*/
 
-*{
- background-color: #eee9d1;
+body{
+ background-color: #ffd79d;
 }
 
+.btn-location{
+    margin-left: 38%;
+}
 
-header{
-    background-color: #9e9d24 ;
+.color{
+    background-color: #d902ee ;
 
 }
 
+.imgcard{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 
 .make-quote{
@@ -23,9 +34,9 @@ header{
 
 .border{
     border-style: solid;
-    border-color: black;
+    border-color:   #ffd79d;
     margin-top: 5%;
-    background-color: #9e9d24;
+    background-color: #d902ee;
     width: fit-content;
     margin-left: 30%;
     
@@ -35,7 +46,7 @@ header{
     border-style: solid;
     border-color: black;
     margin-top: 5%;
-    background-color: #9e9d24;
+    background-color: #d902ee;
     width: fit-content;
     letter-spacing: 10px;
     border-radius: 10px;
