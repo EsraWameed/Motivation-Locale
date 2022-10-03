@@ -5,8 +5,18 @@ function oldUserInput(){
    let getOldQuotes = JSON.parse(localStorage.getItem("oldQuote"));
     console.log(getOldNotes)
      for(i=0; i < 3 ; i++){
+        if (!getOldNotes[i]){
+            document.getElementById("note-" + i).innerHTML = "";
+        }
+        else{
        document.getElementById("note-" + i).innerHTML = getOldNotes[i]
-       $('.historyCard-container').children().eq(i).children().find(".oldQuote").text(getOldQuotes[i]);
+        }
+        if (!getOldQuotes[i]){
+            $('.historyCard-container').children().eq(i).children().find(".oldQuote").text("");
+        }
+        else{
+            $('.historyCard-container').children().eq(i).children().find(".oldQuote").text(getOldQuotes[i]);
+        }
        $('.historyCard-container').children().eq(i).children().find(".savedImage").attr("src", getOldImages[i]); 
      }
    
